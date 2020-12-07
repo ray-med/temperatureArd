@@ -1,0 +1,41 @@
+// Подклчение библиотек
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include <Servo.h>
+
+// Активация библиотек
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+Servo servo;
+
+// Назначение пинов
+//byte const servoPin = 9;
+
+void setup() {
+  lcd.begin(16, 2);
+  lcd.backlight();
+  lcd.print("Hello!");
+  delay(2000);
+  lcd.clear();
+}
+
+void loop() {
+  lcd.print("t1 = ");
+  lcd.setCursor(5, 0);              //  Устанавливаем курсор в позицию (0 столбец, 0 строка)
+  lcd.print("(160)");
+  lcd.setCursor(12, 0);              //  Устанавливаем курсор в позицию (0 столбец, 0 строка)
+  lcd.print(140);
+  lcd.setCursor(15, 0);
+  lcd.print((char)223);
+
+  lcd.setCursor(0, 1);              //  Устанавливаем курсор в позицию (0 столбец, 0 строка)
+  lcd.print("t2 = ");
+  lcd.setCursor(5, 1);              //  Устанавливаем курсор в позицию (0 столбец, 0 строка)
+  lcd.print("(120)");
+  lcd.setCursor(12, 1);              //  Устанавливаем курсор в позицию (0 столбец, 0 строка)
+  lcd.print(109);
+  lcd.setCursor(15, 1);
+  lcd.print((char)223);
+  
+  delay(20000);
+  lcd.clear();
+}
